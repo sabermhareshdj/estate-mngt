@@ -85,3 +85,78 @@ ___________________________________________________________________
 pipenv install --dev psycopg2-binary==2.9.9
 pipenv install --dev watchfiles==0.21.0
 pipenv install --dev black==24.3.0
+
+_______________________________________________________
+
+
+he command you provided is for creating a directory and multiple files in a Unix-like environment (like macOS or Linux). Here’s how you can convert it to work on Windows:
+
+mkdir -p requirements && touch requirements/{base,local,production}.txt
+
+
+
+for Windows (using Command Prompt):
+Create the directory:
+
+mkdir requirements
+Create the files:
+
+type nul > requirements\base.txt
+type nul > requirements\local.txt
+type nul > requirements\production.txt
+
+Explanation:
+mkdir requirements: Creates a new directory named requirements.
+type nul > requirements\base.txt: Creates an empty file named base.txt inside the requirements directory.
+type nul > requirements\local.txt: Creates an empty file named local.txt inside the requirements directory.
+type nul > requirements\production.txt: Creates an empty file named production.txt inside the requirements directory.
+
+
+if you are using PowerShell, you can use this command:
+Converted for Windows (using PowerShell):
+
+mkdir requirements; New-Item -Path requirements\base.txt, requirements\local.txt, requirements\production.txt -ItemType File
+This command achieves the same result, creating the requirements directory and the three .txt files inside it.
+
+__________________________________________________________________________________________________________________
+
+macOS or Linux
+
+mkdir -p settings && touch settings/{__inti__,base,local,production}.py
+
+_______________________________________________________________________________________________________
+
+https://docs.djangoproject.com/en/4.2/topics/auth/passwords/#using-argon2-with-django
+
+PASSWORD_HASHERS = [
+    "django.contrib.auth.hashers.Argon2PasswordHasher",
+    "django.contrib.auth.hashers.PBKDF2PasswordHasher",
+    "django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher",
+    "django.contrib.auth.hashers.BCryptSHA256PasswordHasher",
+    "django.contrib.auth.hashers.ScryptPasswordHasher",
+]
+__________________________________________________________
+
+python -c "import secrets; print(secrets.token_urlsafe(38))"
+
+____________________________________________________________
+
+env
+
+SITE_NAME=""
+DJANGO_SECRET_KEY=""
+DJANGO_ADMIN_URL=""
+EMAIL_PORT=""
+EMAIL_HOST=""
+DEFAULT_FROM_EMAIL=""
+CELERY_FLOWER_USER=""
+CELERY_FLOWER_PASSWORD=""
+CELERY_BROKER_URL=""
+CELERY_RESULT_BACKEND=""
+POSTGRES_HOST=""
+POSTGRES_PORT=""
+POSTGRES_DB=""
+POSTGRES_USER=""
+POSTGRES_PASSWORD=""
+
+_________________________________________________________
