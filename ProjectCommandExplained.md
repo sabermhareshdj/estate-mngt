@@ -1,3 +1,8 @@
+
+pipenv shell 
+تشغيل البيئه الوهمية
+
+
 [packages]
 django = "==4.2.11"
 python-dotenv = "==1.0.1"
@@ -160,3 +165,34 @@ POSTGRES_USER=""
 POSTGRES_PASSWORD=""
 
 _________________________________________________________
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': getenv("POSTGRES_DB"),
+        "USER": getenv("POSTGRES_USER"),
+        "PASSWORD": getenv("POSTGRES_PASSWORD"),
+        "HOST": getenv("POSTGRES_HOST"),
+        "PORT":  getenv("POSTGRES_PORT"),
+    }
+}
+_________________________________________________________________
+Docker 
+
+Portainer
+
+Portainer.io
+•
+
+portainer/portainer-docker-extension:2.19.4
+Docker container management made simple, with the world’s most popular GUI-based container management platform.
+________________________
+https://docs.docker.com/build/building/multi-stage/
+
+docker network create estate_prod_nw
+
+____________________________________________________
+run docker local 
+docker compose -f local.yml up --build -d --remove-orphans
+
+_______________________________________________________
+docker compose -f local.yml up --build -d --remove-orphans
