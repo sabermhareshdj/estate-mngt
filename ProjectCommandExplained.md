@@ -196,3 +196,30 @@ docker compose -f local.yml up --build -d --remove-orphans
 
 _______________________________________________________
 docker compose -f local.yml up --build -d --remove-orphans
+
+_______________________
+(api-5G-5yxgR) C:\Users\USER\Desktop\projectDjangoNextBuilding\estate-mngt\api>docker network create estate_prod_nw
+Error response from daemon: network with name estate_prod_nw already exists
+
+(api-5G-5yxgR) C:\Users\USER\Desktop\projectDjangoNextBuilding\estate-mngt\api>docker network create estate_prod_nw
+Error response from daemon: network with name estate_prod_nw already exists
+
+(api-5G-5yxgR) C:\Users\USER\Desktop\projectDjangoNextBuilding\estate-mngt\api>docker network rm estate_prod_nw
+estate_prod_nw
+
+(api-5G-5yxgR) C:\Users\USER\Desktop\projectDjangoNextBuilding\estate-mngt\api>docker network create estate_prod_nw
+93d1a5a62b8e00ab106d9d94de09dce843da28d6ca59ebd04e8a9865e52a567f
+_____________________________________________
+docker compose -f local.yml config
+
+___________________________________________
+docker compose -f local.yml down -v
+______________________________________________
+docker compose -f local.yml up --build -d
+_____________________
+docker compose -f local.yml logs api
+__________________________________________
+docker compose -f local.yml logs postgres
+________________________________________
+docker volume inspect api_estate_prod_postgres_data
+__________________________________________
