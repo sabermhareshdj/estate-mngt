@@ -1,7 +1,5 @@
-
-pipenv shell 
+pipenv shell
 تشغيل البيئه الوهمية
-
 
 [packages]
 django = "==4.2.11"
@@ -23,7 +21,7 @@ django-celery-beat = "==2.6.0"
 redis = "==5.0.3"
 celery = "==5.3.6"
 
-______________________________________________________________________________________________________________________
+---
 
 Django (django==4.2.11):
 
@@ -84,21 +82,17 @@ flower (flower==2.0.1):
 واجهة مستخدم لمراقبة وإدارة مهام Celery، مما يوفر رؤية واضحة لحالة المهام والعمال (workers).
 هذه المكتبات معًا تشكل بيئة قوية لبناء تطبيقات ويب متقدمة باستخدام Django، مع ميزات مثل إدارة المستخدمين، التعامل مع الصور، معالجة المهام في الخلفية، وتطوير APIs مرنة.
 
-
-___________________________________________________________________
+---
 
 pipenv install --dev psycopg2-binary==2.9.9
 pipenv install --dev watchfiles==0.21.0
 pipenv install --dev black==24.3.0
 
-_______________________________________________________
-
+---
 
 he command you provided is for creating a directory and multiple files in a Unix-like environment (like macOS or Linux). Here’s how you can convert it to work on Windows:
 
 mkdir -p requirements && touch requirements/{base,local,production}.txt
-
-
 
 for Windows (using Command Prompt):
 Create the directory:
@@ -116,35 +110,35 @@ type nul > requirements\base.txt: Creates an empty file named base.txt inside th
 type nul > requirements\local.txt: Creates an empty file named local.txt inside the requirements directory.
 type nul > requirements\production.txt: Creates an empty file named production.txt inside the requirements directory.
 
-
 if you are using PowerShell, you can use this command:
 Converted for Windows (using PowerShell):
 
 mkdir requirements; New-Item -Path requirements\base.txt, requirements\local.txt, requirements\production.txt -ItemType File
 This command achieves the same result, creating the requirements directory and the three .txt files inside it.
 
-__________________________________________________________________________________________________________________
+---
 
 macOS or Linux
 
-mkdir -p settings && touch settings/{__inti__,base,local,production}.py
+mkdir -p settings && touch settings/{**inti**,base,local,production}.py
 
-_______________________________________________________________________________________________________
+---
 
 https://docs.djangoproject.com/en/4.2/topics/auth/passwords/#using-argon2-with-django
 
 PASSWORD_HASHERS = [
-    "django.contrib.auth.hashers.Argon2PasswordHasher",
-    "django.contrib.auth.hashers.PBKDF2PasswordHasher",
-    "django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher",
-    "django.contrib.auth.hashers.BCryptSHA256PasswordHasher",
-    "django.contrib.auth.hashers.ScryptPasswordHasher",
+"django.contrib.auth.hashers.Argon2PasswordHasher",
+"django.contrib.auth.hashers.PBKDF2PasswordHasher",
+"django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher",
+"django.contrib.auth.hashers.BCryptSHA256PasswordHasher",
+"django.contrib.auth.hashers.ScryptPasswordHasher",
 ]
-__________________________________________________________
+
+---
 
 python -c "import secrets; print(secrets.token_urlsafe(38))"
 
-____________________________________________________________
+---
 
 env
 
@@ -164,19 +158,22 @@ POSTGRES_DB=""
 POSTGRES_USER=""
 POSTGRES_PASSWORD=""
 
-_________________________________________________________
+---
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': getenv("POSTGRES_DB"),
-        "USER": getenv("POSTGRES_USER"),
-        "PASSWORD": getenv("POSTGRES_PASSWORD"),
-        "HOST": getenv("POSTGRES_HOST"),
-        "PORT":  getenv("POSTGRES_PORT"),
-    }
+'default': {
+'ENGINE': 'django.db.backends.postgresql',
+'NAME': getenv("POSTGRES_DB"),
+"USER": getenv("POSTGRES_USER"),
+"PASSWORD": getenv("POSTGRES_PASSWORD"),
+"HOST": getenv("POSTGRES_HOST"),
+"PORT": getenv("POSTGRES_PORT"),
 }
-_________________________________________________________________
-Docker 
+}
+
+---
+
+Docker
 
 Portainer
 
@@ -185,19 +182,24 @@ Portainer.io
 
 portainer/portainer-docker-extension:2.19.4
 Docker container management made simple, with the world’s most popular GUI-based container management platform.
-________________________
+
+---
+
 https://docs.docker.com/build/building/multi-stage/
 
 docker network create estate_prod_nw
 
-____________________________________________________
-run docker local 
+---
+
+run docker local
 docker compose -f local.yml up --build -d --remove-orphans
 
-_______________________________________________________
+---
+
 docker compose -f local.yml up --build -d --remove-orphans
 
-_______________________
+---
+
 (api-5G-5yxgR) C:\Users\USER\Desktop\projectDjangoNextBuilding\estate-mngt\api>docker network create estate_prod_nw
 Error response from daemon: network with name estate_prod_nw already exists
 
@@ -209,17 +211,102 @@ estate_prod_nw
 
 (api-5G-5yxgR) C:\Users\USER\Desktop\projectDjangoNextBuilding\estate-mngt\api>docker network create estate_prod_nw
 93d1a5a62b8e00ab106d9d94de09dce843da28d6ca59ebd04e8a9865e52a567f
-_____________________________________________
+
+---
+
 docker compose -f local.yml config
 
-___________________________________________
+---
+
+make down :docker
+docker compose -f local.yml down
+
+---
+make build (docker)
+
+
+
 docker compose -f local.yml down -v
-______________________________________________
+
+---
+
 docker compose -f local.yml up --build -d
-_____________________
+
+---
+
 docker compose -f local.yml logs api
-__________________________________________
+
+---
+
 docker compose -f local.yml logs postgres
-________________________________________
+
+---
+
 docker volume inspect api_estate_prod_postgres_data
-__________________________________________
+
+---
+
+create fronend (client)
+
+file .gitignore copy all last file .gitignore backend
+
+and change any command like this in .gitignore frontend like add client/
+
+# dependencies
+
+!client/src/lib/
+client/node_modules
+client/.pnp
+client/.pnp.js
+client/.yarn/install-state.gz
+
+# testing
+
+client/coverage
+
+# next.js
+
+client/.next/
+client/out/
+
+# production
+
+client/build
+
+# misc
+
+client/.DS_Store
+client/\*.pem
+
+# debug
+
+client/npm-debug.log*
+client/yarn-debug.log*
+client/yarn-error.log\*
+
+# local env files
+
+client/.env\*.local
+
+# vercel
+
+client/.vercel
+
+# typescript
+
+client/\*.tsbuildinfo
+client/next-env.d.ts
+
+---
+
+to delete the file
+rm -rf .gitignore
+rm -rf .git
+
+back to main dir .gitignore backend
+
+git ls-files --others --exclude-standard
+
+can see all change new in file .gitignore
+
+---
